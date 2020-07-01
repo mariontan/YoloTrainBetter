@@ -48,19 +48,19 @@ if __name__ == "__main__":
         "epochs": 320,
         "batch_size": 4,
         "gradient_accumulations": 2,
-        "model_def": r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front\config/yolov3_448.cfg',
+        "model_def": r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front\config/yolov3_480.cfg',
         "data_config": r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front\config/coco.data',
         "pretrained_weights": r'',
-#         "pretrained_weights": r'D:\Ivan\YoloCheckpoints\OID_front_1_erkli_car\checkpoints/yolov3_ckpt_159.pth',
+        # "pretrained_weights":r'D:\Ivan\YoloCheckpoints\OID_front_1_erkli_car_448\checkpoints/yolov3_ckpt_4.pth',
         "offset":0, # pretrained_weight + 1
         "n_cpu": 2,
-        "img_size": 448,
+        "img_size": 480,
         "checkpoint_interval": 1,
         "evaluation_interval": 1,
         "compute_map": False,
         "multiscale_training": True,
-        "outputDir":r'D:\Ivan\YoloCheckpoints/OID_front_1_erkli_car_448/',
-        "csvName": 'OID_front_1_erkli_car_448.csv'
+        "outputDir":r'D:\Ivan\YoloCheckpoints/OID_front_1_erkli_car_480/',
+        "csvName": 'OID_front_1_erkli_car_480.csv'
     })
     opt = args
     print(opt)
@@ -201,7 +201,10 @@ if __name__ == "__main__":
                 img_size=opt.img_size,
                 batch_size=4,
             )
-            df.loc[epoch+label_start]=[epoch+label_start,precision.mean(),recall.mean(),AP.mean(),f1.mean()]
+            try:
+                df.loc[epoch+label_start]=[epoch+label_start,precision.mean(),recall.mean(),AP.mean(),f1.mean()]
+            except:
+                df.loc[epoch+label_start]=[epoch+label_start,0,0,0,0]
             df.to_csv(opt.outputDir+opt.csvName,mode='a',header= False)
 #             evaluation_metrics = [
 #                 ("val_precision", precision.mean()),
