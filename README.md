@@ -1,4 +1,4 @@
-#This is not mine s forked repo
+#This is not mine a forked repo https://github.com/eriklindernoren/PyTorch-YOLOv3
 # PyTorch-YOLOv3
 A minimal PyTorch implementation of YOLOv3, with support for training, inference and evaluation.
 
