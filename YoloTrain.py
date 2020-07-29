@@ -48,19 +48,19 @@ if __name__ == "__main__":
         "epochs": 320,
         "batch_size": 4,
         "gradient_accumulations": 2,
-        "model_def": r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_new_cleaner\config/yolov3_480.cfg',
-        "data_config": r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_new_cleaner\config/coco.data',
+        "model_def": r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_truck_car\config/yolov3.cfg',
+        "data_config": r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_truck_car\config/coco.data',
         "pretrained_weights": r'',
         # "pretrained_weights":r'D:\Ivan\YoloCheckpoints\OID_front_1_erkli_car_448\checkpoints/yolov3_ckpt_4.pth',
         "offset":0, # pretrained_weight + 1
         "n_cpu": 2,
-        "img_size": 480,
+        "img_size": 416,
         "checkpoint_interval": 1,
         "evaluation_interval": 1,
         "compute_map": False,
         "multiscale_training": True,
-        "outputDir":r'D:\Ivan\YoloCheckpoints/OID_front_new_cleaner_1_erkli_car_480/',
-        "csvName": 'OID_front_new_cleaner_1_erkli_car_480.csv'
+        "outputDir":r'D:\Ivan\YoloCheckpoints/katip_truck_car_416/',
+        "csvName": 'katip_truck_car_416.csv'
     })
     opt = args
     print(opt)
@@ -213,11 +213,13 @@ if __name__ == "__main__":
 #                 ("val_f1", f1.mean()),
 #             ]
 #             logger.list_of_scalars_summary(evaluation_metrics, epoch)
-            
             # Print class APs and mAP
             ap_table = [["Index", "Class name", "AP"]]
+            print('ap_class')
+            print(ap_class)
             for i, c in enumerate(ap_class):
                 ap_table += [[c, class_names[c], "%.5f" % AP[i]]]
+                print(ap_table)
             print(AsciiTable(ap_table).table)
             print(f"---- mAP {AP.mean()}")
 
