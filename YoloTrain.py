@@ -48,8 +48,8 @@ if __name__ == "__main__":
         "epochs": 320,
         "batch_size": 4,
         "gradient_accumulations": 2,
-        "model_def": r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_truck_car\config/yolov3.cfg',
-        "data_config": r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_front_truck_car\config/coco.data',
+        "model_def": r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_2_class_car_truck_combined\config/yolov3.cfg',
+        "data_config": r'D:\Ivan\Test_data\IvanMadeDataSet\Yolo_2_class_car_truck_combined\config/coco.data',
         "pretrained_weights": r'',
         # "pretrained_weights":r'D:\Ivan\YoloCheckpoints\OID_front_1_erkli_car_448\checkpoints/yolov3_ckpt_4.pth',
         "offset":0, # pretrained_weight + 1
@@ -59,8 +59,8 @@ if __name__ == "__main__":
         "evaluation_interval": 1,
         "compute_map": False,
         "multiscale_training": True,
-        "outputDir":r'D:\Ivan\YoloCheckpoints/katip_truck_car_416/',
-        "csvName": 'katip_truck_car_416.csv'
+        "outputDir":r'D:\Ivan\YoloCheckpoints/katip_truck_car_twoclass_416/',
+        "csvName": 'katip_truck_car_two_classs_416.csv'
     })
     opt = args
     print(opt)
